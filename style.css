@@ -242,6 +242,64 @@ body{
 .back-top{position:fixed;right:24px;bottom:24px;width:44px;height:44px;border-radius:50%;background:var(--brand);color:#fff;border:none;font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 6px 20px rgba(20,40,160,.35);z-index:40}
 .back-top.show{opacity:1;pointer-events:auto}
 
+/* ===== 第7章：岗位案例分析 ===== */
+.case-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.case-tab{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.7);font-size:15px;font-weight:600;color:var(--muted);cursor:pointer;transition:.2s}
+.case-tab:hover{border-color:var(--brand);color:var(--brand)}
+.case-tab.active{background:var(--brand);color:#fff;border-color:var(--brand);box-shadow:0 6px 18px rgba(20,40,160,.25)}
+.case-tab-ico{font-size:18px}
+
+.case-card{background:var(--card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.case-head{display:flex;align-items:center;gap:18px;margin-bottom:20px}
+.case-icon{font-size:44px;line-height:1;display:grid;place-items:center;width:68px;height:68px;border-radius:18px;background:linear-gradient(135deg,rgba(20,40,160,.1),rgba(127,108,255,.14));flex-shrink:0}
+.case-kicker{font-size:13px;font-weight:600;color:var(--brand);letter-spacing:.5px;margin-bottom:4px}
+.case-title{font-size:clamp(24px,3.4vw,32px);font-weight:700;letter-spacing:-.01em}
+.case-sub{font-size:15px;font-weight:500;color:var(--muted);margin-left:10px}
+
+.case-stats{display:flex;gap:0;flex-wrap:wrap;margin-bottom:20px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.case-stat{flex:1;min-width:120px;padding:16px 20px;background:rgba(20,40,160,.04);border-right:1px solid var(--line)}
+.case-stat:last-child{border-right:none}
+.case-stat b{display:block;font-size:30px;font-weight:700;color:var(--brand);line-height:1.1}
+.case-stat span{font-size:13px;color:var(--muted)}
+
+.case-summary{font-size:16px;color:#3a3a3c;margin-bottom:24px;line-height:1.8}
+
+.case-duties{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+.case-duty{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;transition:.2s}
+.case-duty.open{border-color:rgba(20,40,160,.35);box-shadow:0 6px 18px rgba(20,40,160,.08)}
+.case-duty-head{display:flex;align-items:center;gap:14px;width:100%;padding:16px 18px;background:none;border:none;cursor:pointer;text-align:left;font-family:inherit;transition:.2s}
+.case-duty-head:hover{background:rgba(20,40,160,.03)}
+.cd-name{font-size:16px;font-weight:700;color:var(--ink);flex-shrink:0}
+.cd-desc{font-size:13px;color:var(--muted);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cd-count{font-size:12px;font-weight:600;color:var(--brand);background:rgba(20,40,160,.08);padding:3px 10px;border-radius:20px;flex-shrink:0}
+.cd-arrow{color:var(--muted);transition:.25s;flex-shrink:0;font-size:14px}
+.case-duty.open .cd-arrow{transform:rotate(180deg);color:var(--brand)}
+.case-duty-body{display:none;padding:0 18px 16px;border-top:1px dashed var(--line)}
+.case-duty.open .case-duty-body{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.case-task{display:flex;align-items:baseline;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.case-task:last-child{border-bottom:none}
+.ct-code{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:12px;font-weight:700;color:var(--brand);background:rgba(20,40,160,.08);padding:2px 8px;border-radius:6px;flex-shrink:0}
+.ct-name{font-size:15px;font-weight:600;color:var(--ink);flex-shrink:0}
+.ct-note{font-size:13px;color:var(--muted)}
+
+.case-highlight{margin-bottom:14px;padding:14px 18px;border-radius:12px;background:linear-gradient(135deg,rgba(20,40,160,.06),rgba(127,108,255,.08));border:1px solid rgba(20,40,160,.15);font-size:15px;color:#3a3a3c;line-height:1.7}
+.case-source{font-size:12px;color:var(--muted);opacity:.8}
+.case-note{margin-top:24px}
+
+@media(max-width:820px){
+  .case-tab{padding:9px 14px;font-size:14px}
+  .case-card{padding:22px 18px}
+  .cd-desc{display:none}
+  .case-duty-head{gap:10px}
+  .cd-name{font-size:15px}
+  .case-task{flex-wrap:wrap}
+}
+@media(max-width:480px){
+  .case-stat{min-width:50%}
+  .case-sub{display:block;margin-left:0;margin-top:2px}
+}
+
 /* reveal 动画（仅在 JS 可用时启用隐藏，无 JS 时直接可见） */
 .reveal{opacity:1;transform:none}
 .has-js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
