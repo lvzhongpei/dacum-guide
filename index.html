@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="DACUM 分析法交互式学习网站——零基础也能看懂，配套 6 大工具直接复用">
+<title>DACUM 分析法 · 交互式学习</title>
+<script>document.documentElement.classList.add('has-js')</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+</div>
+
+<nav class="nav" id="nav">
+  <a class="brand" href="#top">
+    <span class="brand-mark">D</span>
+    <span class="brand-text">DACUM 分析法</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#ch1">是什么</a>
+    <a href="#ch2">三大前提</a>
+    <a href="#ch3">核心概念</a>
+    <a href="#ch4">八步流程</a>
+    <a href="#ch5">任务陈述</a>
+    <a href="#ch6">验证产出</a>
+    <a href="#tools" class="nav-tools">工具集</a>
+  </div>
+  <button class="menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="eyebrow">Developing A CurriculUM · 交互式学习</div>
+    <h1>一张表，讲清一个职业</h1>
+    <p class="hero-sub">DACUM 分析法是一套「又快又省」的职业分析工具：请一线专家坐在一起，用头脑风暴把某个职业拆成<strong>职责</strong>与<strong>任务</strong>，画成一张图，就能照着开发课程、写岗位说明、做培训。</p>
+    <div class="hero-cta">
+      <a href="#ch1" class="btn btn-primary">开始学习</a>
+      <a href="#tools" class="btn btn-ghost">直接去用工具</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>2–3 天</b><span>完成一次分析</span></div>
+      <div class="stat"><b>8–12 人</b><span>专家委员会</span></div>
+      <div class="stat"><b>8–12 个</b><span>职责领域</span></div>
+      <div class="stat"><b>50–200 条</b><span>任务陈述</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- 第 1 章 -->
+  <section class="chapter" id="ch1">
+    <div class="ch-head reveal">
+      <span class="ch-no">01</span>
+      <h2>什么是 DACUM？</h2>
+      <p class="ch-desc">先搞清楚它是什么、从哪来、能干什么。</p>
+    </div>
+
+    <div class="card reveal">
+      <h3>一句话解释</h3>
+      <p class="lead">DACUM = <strong>Developing A CurriculUM</strong>（教学计划开发）。它本质上是一种「分析和确定某个职业需要什么能力」的方法。</p>
+      <p>想象你要开一门课、或者招一个人，却说不清"这个岗位到底要会什么"。DACUM 就是帮你把这件事讲清楚的一套标准流程。</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card reveal">
+        <h3>它从哪里来</h3>
+        <ul class="clean">
+          <li>1960 年代末，加拿大人力部门想找一种"让培训贴合真实工作"的方法</li>
+          <li>研究结论：<strong>优秀员工最清楚自己岗位要会什么</strong></li>
+          <li>加拿大、美国合作开发，取名 DACUM，后被北美和世界各地广泛采用</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3>它解决什么问题</h3>
+        <ul class="clean">
+          <li>传统职业分析：<strong>慢、贵、靠专家拍脑袋</strong></li>
+          <li>DACUM：请一线高手坐一起，<strong>2–3 天、低成本</strong>出结果</li>
+          <li>产出"一张图"，课程开发 / 招聘 / 考核全都能用</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <h3>DACUM 的 6 大用途</h3>
+      <div class="use-grid">
+        <div class="use-item"><span class="use-ico">📘</span><b>课程开发</b><span>照着任务设计教学</span></div>
+        <div class="use-item"><span class="use-ico">🧭</span><b>咨询招生</b><span>让学生看清要学什么</span></div>
+        <div class="use-item"><span class="use-ico">🎯</span><b>培训需求评估</b><span>找出该补哪些能力</span></div>
+        <div class="use-item"><span class="use-ico">📈</span><b>绩效评估</b><span>有了可衡量的标准</span></div>
+        <div class="use-item"><span class="use-ico">📝</span><b>胜任力测试</b><span>出考题有了依据</span></div>
+        <div class="use-item"><span class="use-ico">🧾</span><b>岗位说明书</b><span>职责任务一目了然</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第 2 章 -->
+  <section class="chapter" id="ch2">
+    <div class="ch-head reveal">
+      <span class="ch-no">02</span>
+      <h2>三大前提假设</h2>
+      <p class="ch-desc">DACUM 全部逻辑都建立在三个"信念"上，先接受它们，后面才好懂。</p>
+    </div>
+
+    <div class="premise-stage reveal" id="premiseStage">
+      <div class="premise-nav">
+        <button class="premise-tab active" data-p="0">前提 1</button>
+        <button class="premise-tab" data-p="1">前提 2</button>
+        <button class="premise-tab" data-p="2">前提 3</button>
+      </div>
+      <div class="premise-body">
+        <div class="premise-card active" data-panel="0">
+          <div class="premise-emoji">👷</div>
+          <h3>专家工人最懂自己的岗位</h3>
+          <p>天天干这活的人，比任何领导、老师、教科书都更清楚"这活到底要会什么"。</p>
+        </div>
+        <div class="premise-card" data-panel="1">
+          <div class="premise-emoji">🧩</div>
+          <h3>任务能充分描述一个岗位</h3>
+          <p>任何职业，都能用"成功员工做的那些任务"来有效、充分地讲清楚。</p>
+        </div>
+        <div class="premise-card" data-panel="2">
+          <div class="premise-emoji">🧠</div>
+          <h3>任务直接指向知识与态度</h3>
+          <p>每个任务背后，都藏着员工必须掌握的知识和态度。列出任务，也就框定了要学什么。</p>
+        </div>
+      </div>
+      <div class="premise-dots"></div>
+    </div>
+  </section>
+
+  <!-- 第 3 章 -->
+  <section class="chapter" id="ch3">
+    <div class="ch-head reveal">
+      <span class="ch-no">03</span>
+      <h2>核心概念：职责 vs 任务</h2>
+      <p class="ch-desc">这是 DACUM 最重要的一组词，也是新手最容易搞混的地方。</p>
+    </div>
+
+    <div class="card reveal">
+      <h3>一张图看懂层级</h3>
+      <div class="hierarchy">
+        <div class="h-node h-job">职业 / 岗位<br><small>Occupation</small></div>
+        <div class="h-arrow">↓</div>
+        <div class="h-level">
+          <div class="h-node h-duty">职责 Duty<br><small>宽泛的责任领域（8–12 个）</small></div>
+        </div>
+        <div class="h-arrow">↓</div>
+        <div class="h-level h-tasks">
+          <div class="h-node h-task">任务 Task</div>
+          <div class="h-node h-task">任务 Task</div>
+          <div class="h-node h-task">任务 Task</div>
+          <div class="h-node h-task">任务 Task</div>
+        </div>
+        <div class="h-arrow">↓</div>
+        <div class="h-level h-steps">
+          <div class="h-node h-step">步骤 Step</div>
+          <div class="h-node h-step">步骤 Step</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card reveal duty-card">
+        <h3>职责（Duty）</h3>
+        <p>一个<strong>宽泛的责任领域</strong>，用来把相关任务归成一类。</p>
+        <ul class="clean">
+          <li>通常 8–12 个</li>
+          <li>用动词开头，如"执行诊断测试""维护设备"</li>
+          <li>每个职责下至少 6 条任务</li>
+        </ul>
+      </div>
+      <div class="card reveal task-card">
+        <h3>任务（Task）</h3>
+        <p>一个<strong>具体、可观察的工作活动</strong>，是图表的最小核心单元。</p>
+        <ul class="clean">
+          <li>有明确起止点，可短时间完成</li>
+          <li>由两个及以上步骤组成</li>
+          <li>产出"产品、服务或决策"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <h3>任务陈述的三要素</h3>
+      <p>一条合格的任务陈述 = <strong>动词 + 宾语 + 限定语</strong>。</p>
+      <div class="triple">
+        <div class="triple-item"><span class="triple-tag t-verb">动词 Verb</span><small>做什么动作</small><em>prepare / maintain</em></div>
+        <div class="triple-plus">+</div>
+        <div class="triple-item"><span class="triple-tag t-object">宾语 Object</span><small>作用的对象</small><em>budgets / equipment</em></div>
+        <div class="triple-plus">+</div>
+        <div class="triple-item"><span class="triple-tag t-qual">限定语 Qualifier</span><small>修饰说明</small><em>first aid…</em></div>
+      </div>
+      <p class="example">例：<b>Treat</b> <u>burn victims</u> <i>using first aid measures</i> —— 治疗烧伤患者（用急救措施）</p>
+    </div>
+  </section>
+
+  <!-- 第 4 章 -->
+  <section class="chapter" id="ch4">
+    <div class="ch-head reveal">
+      <span class="ch-no">04</span>
+      <h2>八步流程</h2>
+      <p class="ch-desc">整个工作坊就是按这 8 步走完的。点每一步看详情。</p>
+    </div>
+
+    <div class="card reveal">
+      <div class="flow-steps" id="flowSteps">
+        <div class="flow-step active" data-step="1"><span class="f-no">1</span><span class="f-name">引导委员会</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" data-step="2"><span class="f-no">2</span><span class="f-name">审视职业</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" data-step="3"><span class="f-no">3</span><span class="f-name">界定职责</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" data-step="4"><span class="f-no">4</span><span class="f-name">界定任务</span></div>
+        <div class="flow-arrow">↩</div>
+        <div class="flow-step" data-step="5"><span class="f-no">5</span><span class="f-name">审核精炼</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" data-step="6"><span class="f-no">6</span><span class="f-name">排序</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" data-step="7"><span class="f-no">7</span><span class="f-name">界定入门任务</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" data-step="8"><span class="f-no">8</span><span class="f-name">其他选项</span></div>
+      </div>
+      <div class="flow-detail" id="flowDetail"></div>
+    </div>
+  </section>
+
+  <!-- 第 5 章 -->
+  <section class="chapter" id="ch5">
+    <div class="ch-head reveal">
+      <span class="ch-no">05</span>
+      <h2>任务陈述怎么写</h2>
+      <p class="ch-desc">写对一条任务陈述，是 DACUM 质量的命门。</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card reveal">
+        <h3>合格的标准</h3>
+        <ul class="clean">
+          <li>以<strong>行为动词</strong>开头（现在时）</li>
+          <li>描述<strong>可观察的行为</strong>，不写"知道/理解/欣赏"</li>
+          <li>一个陈述只含<strong>一个任务</strong></li>
+          <li>能<strong>独立成句</strong>，不加"effectively / carefully"等废话</li>
+          <li>避免模糊动词（work with / handle / 负责）</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3>常见错误示例</h3>
+        <div class="bad-examples">
+          <p class="bad">✗ 工人应该<strong>知道</strong>设备原理</p>
+          <p class="good">✓ <strong>检修</strong>设备故障</p>
+          <p class="bad">✗ <strong>负责</strong>库存管理</p>
+          <p class="good">✓ <strong>盘点</strong>并<strong>记录</strong>库存</p>
+          <p class="bad">✗ 与程序<strong>打交道</strong></p>
+          <p class="good">✓ <strong>编写</strong>并<strong>调试</strong>程序</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第 6 章 -->
+  <section class="chapter" id="ch6">
+    <div class="ch-head reveal">
+      <span class="ch-no">06</span>
+      <h2>验证与产出</h2>
+      <p class="ch-desc">工作坊开完还不算完，还要验证、画图、才能用。</p>
+    </div>
+
+    <div class="card reveal">
+      <h3>任务验证（Verification）</h3>
+      <p>把初步任务清单交给<strong>更多一线专家</strong>复核，确认"这些任务真的是这个岗位要做的"，同时给任务打分。</p>
+      <div class="verify-5">
+        <div class="v-item">重要性</div>
+        <div class="v-item">频率</div>
+        <div class="v-item">是否入门级</div>
+        <div class="v-item">难度</div>
+        <div class="v-item">关键性</div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <h3>产出 DACUM 图表</h3>
+      <p>验证后，把职责、任务按"字母 + 数字"编码（如 A-1、A-2、B-1），做成一张能力画像图。</p>
+      <div class="chart-mini">
+        <div class="cm-duty"><b>A</b> 提供人力资源支持</div>
+        <div class="cm-tasks"><span>A-1</span><span>A-2</span><span>A-3</span><span>A-4</span><span>A-5</span></div>
+        <div class="cm-duty"><b>B</b> 管理薪酬</div>
+        <div class="cm-tasks"><span>B-1</span><span>B-2</span><span>B-3</span><span>B-4</span></div>
+        <div class="cm-duty"><b>C</b> 开发人力资源</div>
+        <div class="cm-tasks"><span>C-1</span><span>C-2</span><span>C-3</span><span>C-4</span></div>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <h3>后续：任务分析 → 课程</h3>
+      <p>DACUM 之后，把每条任务再拆成 6 个维度，就能开发教学材料了。</p>
+      <div class="ta-6">
+        <div class="ta-item">步骤</div>
+        <div class="ta-item">知识</div>
+        <div class="ta-item">态度</div>
+        <div class="ta-item">绩效标准</div>
+        <div class="ta-item">工具材料</div>
+        <div class="ta-item">安全事项</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 工具集 -->
+  <section class="chapter tools-ch" id="tools">
+    <div class="ch-head reveal">
+      <span class="ch-no">🧰</span>
+      <h2>配套工具集</h2>
+      <p class="ch-desc">6 个可复用工具，覆盖 DACUM 全流程。直接上手操作，结果可复制、可导出。</p>
+    </div>
+
+    <div class="tool-tabs reveal" id="toolTabs">
+      <button class="tool-tab active" data-t="t1">八步引导器</button>
+      <button class="tool-tab" data-t="t2">卡片墙搭建器</button>
+      <button class="tool-tab" data-t="t3">任务陈述检查器</button>
+      <button class="tool-tab" data-t="t4">职责/任务分类</button>
+      <button class="tool-tab" data-t="t5">验证问卷生成器</button>
+      <button class="tool-tab" data-t="t6">图表导出器</button>
+    </div>
+
+    <div class="tool-panel active" id="t1">
+      <div class="tool-inner reveal">
+        <h3>八步引导器</h3>
+        <p class="tool-desc">像工作坊主持人一样，一步步走完 DACUM 8 个步骤。</p>
+        <div class="wizard">
+          <div class="wiz-progress"><span id="wizBar"></span></div>
+          <div class="wiz-stage" id="wizStage"></div>
+          <div class="wiz-controls">
+            <button class="btn btn-ghost" id="wizPrev">上一步</button>
+            <button class="btn btn-primary" id="wizNext">下一步</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-panel" id="t2">
+      <div class="tool-inner reveal">
+        <h3>卡片墙搭建器</h3>
+        <p class="tool-desc">模拟 DACUM 工作坊"贴墙"过程：添加职责，往职责下添加任务，可拖动排序。</p>
+        <div class="wall-controls">
+          <input type="text" id="wallInput" placeholder="输入一条陈述，如「维护焊接设备」">
+          <select id="wallType"><option value="duty">作为职责添加</option><option value="task">作为任务添加（需先选职责）</option></select>
+          <button class="btn btn-primary" id="wallAdd">添加</button>
+        </div>
+        <div class="wall" id="wall"></div>
+      </div>
+    </div>
+
+    <div class="tool-panel" id="t3">
+      <div class="tool-inner reveal">
+        <h3>任务陈述检查器</h3>
+        <p class="tool-desc">粘贴一条任务陈述，自动检查是否符合"动词 + 宾语 + 限定语"及写作准则。</p>
+        <div class="checker">
+          <input type="text" id="checkInput" placeholder="例如：检修液压泵的密封件">
+          <button class="btn btn-primary" id="checkBtn">检查</button>
+        </div>
+        <div class="check-result" id="checkResult"></div>
+      </div>
+    </div>
+
+    <div class="tool-panel" id="t4">
+      <div class="tool-inner reveal">
+        <h3>职责 / 任务分类练习</h3>
+        <p class="tool-desc">判断下面每条是"职责（宽泛领域）"还是"任务（具体活动）"。</p>
+        <div class="quiz" id="quiz"></div>
+      </div>
+    </div>
+
+    <div class="tool-panel" id="t5">
+      <div class="tool-inner reveal">
+        <h3>验证问卷生成器</h3>
+        <p class="tool-desc">输入任务清单，选择要评估的维度，生成可导出的验证问卷。</p>
+        <textarea id="surveyInput" placeholder="每行一条任务，例如：&#10;检修液压泵的密封件&#10;更换轴承&#10;分析故障原因"></textarea>
+        <div class="survey-opts" id="surveyOpts"></div>
+        <button class="btn btn-primary" id="surveyGen">生成问卷</button>
+        <div class="survey-out" id="surveyOut"></div>
+      </div>
+    </div>
+
+    <div class="tool-panel" id="t6">
+      <div class="tool-inner reveal">
+        <h3>图表导出器</h3>
+        <p class="tool-desc">把上面卡片墙搭好的内容，一键生成 DACUM 图表预览，可导出 JSON 或图片。</p>
+        <button class="btn btn-primary" id="chartBuild">从卡片墙生成图表</button>
+        <button class="btn btn-ghost" id="chartJson">导出 JSON</button>
+        <button class="btn btn-ghost" id="chartPng">导出图片</button>
+        <div class="chart-out" id="chartOut"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>本网站内容整理自《DACUM Handbook》(Robert E. Norton, 1985) 及公开资料 · 仅供学习参考</p>
+  <p>DACUM = Developing A CurriculUM · 交互式学习 · 响应式多端兼容</p>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+
+<script src="app.js"></script>
+</body>
+</html>
