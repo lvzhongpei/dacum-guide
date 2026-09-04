@@ -359,3 +359,281 @@ function htmlToImage(node){
     });
   });
 })();
+
+/* ===== 第7章：不同岗位的实际分析 ===== */
+(function(){
+  const cases = [
+    {
+      id: 'accountant',
+      icon: '🧮',
+      title: '会计',
+      subtitle: 'Accounting',
+      tag: '中国高职课程开发',
+      source: '来源：MBA 智库百科《DACUM 分析法》· 高职会计专业能力图表',
+      summary: '高职会计专业的 DACUM 能力图，把会计岗位拆成 8 大工作项目，每个项目下再列具体任务，并标注「重要程度 / 难易程度」评分（满分 5）。这是国内职业教育领域最典型的 DACUM 应用范例。',
+      stats: [
+        { n: '8', l: '工作项目（职责）' },
+        { n: '30+', l: '具体任务' },
+        { n: '4.1', l: '最高重要程度' }
+      ],
+      duties: [
+        { name: '出纳核算', desc: '库存现金与银行存款的收支、凭证、日记账与对账', tasks: [
+          ['1-1', '库存现金 / 银行存款收支', '熟悉资金管理制度与审批权限，熟练操作各类支付结算业务'],
+          ['1-2', '库存现金 / 银行存款凭证编制', '正确审核单据、运用会计科目、编制记账凭证'],
+          ['1-3', '登记日记账', '及时登记现金、银行存款日记账并准确结账'],
+          ['1-4', '库存现金 / 银行存款对账', '每日盘点现金、核对银行对账单、查明未达账项']
+        ]},
+        { name: '往来核算', desc: '应收、应付、预收、预付及其他往来款的分类与核算', tasks: [
+          ['2-1', '应收账款的分类及核算', '审核原始凭证、判断收入类型、登记明细账并与总账核对'],
+          ['2-2', '应付账款的分类及核算', '审核原始凭证、编制凭证、月末与采购合同核对'],
+          ['2-3', '预收 / 预付账款的核算', '汇总明细账余额，提供给总账会计填列报表']
+        ]},
+        { name: '财产物资核算', desc: '存货、固定资产、在建工程等财产物资的收发与对账', tasks: [
+          ['3-1', '材料 / 产成品 / 物资的收付记账', '掌握分类与计价方法，进行收发核算'],
+          ['3-2', '财产物资的对账（账实卡相符）', '深入仓库现场盘点清查各项财产物资']
+        ]},
+        { name: '成本核算', desc: '产品成本的计算与归集', tasks: [
+          ['4-1', '归集与分配生产费用', '正确划分费用界限、选择分配方法'],
+          ['4-2', '计算产品成本', '运用品种法、分批法等计算完工产品成本']
+        ]}
+      ],
+      highlight: '会计案例完整呈现了 DACUM 图表的「职责—任务」两层结构，并额外叠加了「重要程度 / 难易程度」评分，是「先分析、再排序」的教科书示范。'
+    },
+    {
+      id: 'daycare-nurse',
+      icon: '👶',
+      title: '日托中心护士',
+      subtitle: 'Daycare Nurse',
+      tag: '韩国社区公共卫生护理研究',
+      source: '来源：Research in Community & Public Health Nursing 期刊论文',
+      summary: '用 DACUM 工作坊分析托儿所护士的岗位，产出 10 大职责 + 50 条任务，并经 8 位专家验证全部有效。研究发现「传染病管理」是任务数第二多的职责，凸显了它在当今时代的重要性。',
+      stats: [
+        { n: '10', l: '职责（Duties）' },
+        { n: '50', l: '任务（Tasks）' },
+        { n: '8 位', l: '专家验证' }
+      ],
+      duties: [
+        { name: '婴幼儿健康监测', desc: 'A. Health Monitoring', tasks: [
+          ['A-1', '健康状态与紧急情况应对', '含急救处理，被列为最重要的任务之一'],
+          ['A-2', '口腔健康监测', '受限于工具与规范，执行率较低'],
+          ['A-3', '定期视力筛查', '被评为难度最高的任务']
+        ]},
+        { name: '生长发育筛查', desc: 'B. Growth & Development Screening', tasks: [
+          ['B-1', '身高体重等生长发育评估', '定期评估婴幼儿发育里程碑']
+        ]},
+        { name: '健康教育', desc: 'C. Health & Safety Education', tasks: [
+          ['C-1', '面向婴幼儿、家长的健康安全教育', '普及卫生与安全知识']
+        ]},
+        { name: '医疗机构协作', desc: 'D. Health Management & Recommendation', tasks: [
+          ['D-1', '健康问题与紧急情况应对（含急救）', '最重要的任务之一'],
+          ['D-5', '急诊患者转院与医疗机构推荐', '高危任务，直接关系生命安全']
+        ]},
+        { name: '传染病管理', desc: 'F. Infectious Disease Management', tasks: [
+          ['F-1', '传染病防控与上报', '任务数第二多的职责，重要性日益凸显']
+        ]}
+      ],
+      highlight: '护士案例展示了 DACUM 如何服务于「岗位说明书 + 培训课程」双目标：任务按重要性和难度分级，帮助护士长确定培训优先级。'
+    },
+    {
+      id: 'or-nurse',
+      icon: '🏥',
+      title: '手术室护士',
+      subtitle: 'Operating Room Nurse',
+      tag: '韩国基础护理学期刊研究',
+      source: '来源：Journal of Korean Academy of Fundamental Nursing (2008)',
+      summary: '由 10 名手术室护士组成的 DACUM 委员会，最终产出了 13 大职责 + 105 条任务，并经 422 名护士验证重要性与难度。这是任务数量最多的案例之一，说明手术室岗位极其复杂。',
+      stats: [
+        { n: '13', l: '职责（Duties）' },
+        { n: '105', l: '任务（Tasks）' },
+        { n: '422 人', l: '验证样本' }
+      ],
+      duties: [
+        { name: '协助手术', desc: '最重要职责，判定系数 DC=6.61', tasks: [
+          ['', '协助骨科手术', '最重要任务 DC=7.60'],
+          ['', '协助胸外科手术', 'DC=7.38'],
+          ['', '保存手术部位', 'DC=3.27，相对较低']
+        ]},
+        { name: '管理手术材料', desc: '判定系数最低 DC=4.22', tasks: [
+          ['', '制作纱布球', '重要性最低 DC=2.39']
+        ]},
+        { name: '术前 / 术中 / 术后护理', desc: '贯穿手术全流程的护理职责', tasks: [
+          ['', '术前准备与核查', '核对患者信息、器械'],
+          ['', '术中配合与记录', '配合主刀、记录手术进程'],
+          ['', '术后清点与护理', '清点器械、观察恢复']
+        ]}
+      ],
+      highlight: '手术室护士案例用「判定系数 DC（Determinant Coefficient）」量化每项职责、任务的重要性，是 DACUM 结合量化评分的进阶应用。'
+    },
+    {
+      id: 'ward-nurse',
+      icon: '🩺',
+      title: '病房 / ICU 护士',
+      subtitle: 'General Ward & ICU Nurse',
+      tag: '韩国护理行政学期刊研究',
+      source: '来源：Korean Academy of Nursing Administration (2017)',
+      summary: '面向三级医院普通病房与重症监护室（ICU）护士，用 DACUM 产出 10 大职责 + 38 条任务 + 51 项任务要素，并按「重要性 / 频率 / 难度」4 分制评分。研究发现「直接护理」重要性最高，「记录与通知」频率与难度最高。',
+      stats: [
+        { n: '10', l: '职责（Duties）' },
+        { n: '38', l: '任务（Tasks）' },
+        { n: '51', l: '任务要素' }
+      ],
+      duties: [
+        { name: '直接护理', desc: '重要性最高的职责', tasks: [
+          ['', '执行医嘱与给药', '核心护理操作'],
+          ['', '病情观察与评估', '实时监测患者状况']
+        ]},
+        { name: '感染控制', desc: '重要性第二，但被评为相对简单', tasks: [
+          ['', '手卫生与隔离防护', '执行标准预防措施'],
+          ['', '消毒灭菌管理', '保障医疗环境安全']
+        ]},
+        { name: '记录与通知', desc: '频率与难度最高的职责', tasks: [
+          ['', '护理文书书写', '高频且要求严谨'],
+          ['', '异常情况上报', '及时沟通与交接']
+        ]},
+        { name: '安全与质量改进', desc: '研究、质量管理相关', tasks: [
+          ['', '患者安全风险管理', '如防跌倒、防压疮'],
+          ['', '护理质量持续改进', '参与研究、改进流程']
+        ]}
+      ],
+      highlight: '该案例引入「任务要素（Task Elements）」这一更细粒度，把 38 条任务进一步拆成 51 个要素，展示了 DACUM 从职责到任务再到要素的三级细化。'
+    },
+    {
+      id: 'dementia-nurse',
+      icon: '🧠',
+      title: '失智护理中心护士',
+      subtitle: 'Dementia Care Center Nurse',
+      tag: '韩国社区护理学研究',
+      source: '来源：Journal of Korean Academy of Community Health Nursing (2025)',
+      summary: '分析失智症护理中心护士岗位，产出 10 大职责 + 66 条任务（每项职责含 3–10 条任务）。识别出「咨询与登记管理」「个案管理」「家庭照护者支持」为最优先的三大核心职责。',
+      stats: [
+        { n: '10', l: '职责（Duties）' },
+        { n: '66', l: '任务（Tasks）' },
+        { n: '52%', l: '护士占比' }
+      ],
+      duties: [
+        { name: '咨询与登记管理', desc: '最优先核心职责之一', tasks: [
+          ['', '失智症咨询与登记', '接待患者与家属、建立档案']
+        ]},
+        { name: '个案管理', desc: 'Case Management，核心职责', tasks: [
+          ['', '量身定制个案管理', '评估需求、制定照护方案'],
+          ['', '家庭与照护者支持', '为核心职责之一，贯穿全程']
+        ]},
+        { name: '失智诊断筛查', desc: '重要性与频率都高的职责', tasks: [
+          ['', '早期筛查与诊断协助', '配合医生开展筛查']
+        ]},
+        { name: '公益监护人项目', desc: '最重要也最难的职责', tasks: [
+          ['', '失智症公益监护', '重要性最高、难度最大']
+        ]}
+      ],
+      highlight: '失智护士案例体现了 DACUM 在新兴社区照护岗位上的应用——帮助一个全新职业理清职责边界，并据此设计培训方向。'
+    },
+    {
+      id: 'lvn',
+      icon: '📋',
+      title: '门诊执业护士',
+      subtitle: 'Ambulatory Care LVN',
+      tag: '美国加州卫生人力组织',
+      source: '来源：加州卫生人力组织（CA-HWI）发布的 DACUM 研究图表',
+      summary: '美国门诊护理执业护士（LVN）的标准 DACUM 图表，7 大职责领域，每条任务都严格写成「动词开头」的陈述，是英文语境下「任务陈述写作标准」的最佳范例。',
+      stats: [
+        { n: '7', l: '职责领域' },
+        { n: '100+', l: '任务陈述' },
+        { n: '英文', l: '标准示范' }
+      ],
+      duties: [
+        { name: '执行患者护理活动', desc: 'A. Perform Patient Care Activities', tasks: [
+          ['A.1', 'Room patient', '接待并安置患者'],
+          ['A.3', 'Perform medication reconciliation', '核对用药清单'],
+          ['A.7', 'Perform wound care', '执行伤口护理'],
+          ['A.29', 'Document patient care', '记录患者护理']
+        ]},
+        { name: '采集患者标本', desc: 'B. Collect Patient Specimens', tasks: [
+          ['B.1', 'Obtain blood samples', '采集血液样本'],
+          ['B.3', 'Collect urine samples', '采集尿液样本']
+        ]},
+        { name: '执行诊断检测', desc: 'C. Perform Diagnostic Testing', tasks: [
+          ['C.1', 'Obtain patient vital signs', '测量生命体征'],
+          ['C.7', 'Perform patient EKG', '执行心电图检查']
+        ]},
+        { name: '协调内外部服务', desc: 'D. Coordinate Services', tasks: [
+          ['D.2', 'Provide SBAR report', '提供 SBAR 交接报告'],
+          ['D.4', 'Coordinate radiology appointments', '协调影像检查预约']
+        ]},
+        { name: '参与质量管理', desc: 'E. Quality Management / Compliance', tasks: [
+          ['E.1', 'Verify expiration dates', '核对药品效期'],
+          ['E.3', 'Maintain narcotic control', '维持麻醉药品管控']
+        ]}
+      ],
+      highlight: 'LVN 案例是「任务陈述写作」的英文标杆：每一条都以精确的行为动词开头（Perform / Obtain / Document），完全符合 DACUM 的写作准则。'
+    }
+  ];
+
+  const tabsEl = document.getElementById('caseTabs');
+  const stageEl = document.getElementById('caseStage');
+  let current = 0;
+
+  function renderTabs(){
+    tabsEl.innerHTML = '';
+    cases.forEach((c, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'case-tab' + (i === current ? ' active' : '');
+      btn.innerHTML = `<span class="case-tab-ico">${c.icon}</span><span>${c.title}</span>`;
+      btn.addEventListener('click', () => { current = i; renderTabs(); renderStage(); });
+      tabsEl.appendChild(btn);
+    });
+  }
+
+  function renderStage(){
+    const c = cases[current];
+    const dutyHtml = c.duties.map(d => `
+      <div class="case-duty">
+        <button class="case-duty-head" data-toggle>
+          <span class="cd-name">${escapeHtml(d.name)}</span>
+          <span class="cd-desc">${escapeHtml(d.desc)}</span>
+          <span class="cd-count">${d.tasks.length} 项任务</span>
+          <span class="cd-arrow">▾</span>
+        </button>
+        <div class="case-duty-body">
+          ${d.tasks.map(t => `
+            <div class="case-task">
+              ${t[0] ? `<span class="ct-code">${escapeHtml(t[0])}</span>` : ''}
+              <span class="ct-name">${escapeHtml(t[1])}</span>
+              <span class="ct-note">${escapeHtml(t[2])}</span>
+            </div>`).join('')}
+        </div>
+      </div>`).join('');
+
+    stageEl.innerHTML = `
+      <div class="case-card">
+        <div class="case-head">
+          <span class="case-icon">${c.icon}</span>
+          <div class="case-title-wrap">
+            <div class="case-kicker">${escapeHtml(c.tag)}</div>
+            <h3 class="case-title">${escapeHtml(c.title)} <span class="case-sub">${escapeHtml(c.subtitle)}</span></h3>
+          </div>
+        </div>
+        <div class="case-stats">
+          ${c.stats.map(s => `<div class="case-stat"><b>${escapeHtml(s.n)}</b><span>${escapeHtml(s.l)}</span></div>`).join('')}
+        </div>
+        <p class="case-summary">${escapeHtml(c.summary)}</p>
+        <div class="case-duties">
+          ${dutyHtml}
+        </div>
+        <div class="case-highlight">🌟 亮点：${escapeHtml(c.highlight)}</div>
+        <p class="case-source">${escapeHtml(c.source)}</p>
+      </div>`;
+
+    // 职责展开/收起
+    stageEl.querySelectorAll('[data-toggle]').forEach(head => {
+      head.addEventListener('click', () => {
+        const duty = head.parentElement;
+        const wasOpen = duty.classList.contains('open');
+        // 可同时展开多个，或点已开的收起
+        duty.classList.toggle('open', !wasOpen);
+      });
+    });
+  }
+
+  renderTabs();
+  renderStage();
+})();
