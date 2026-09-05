@@ -41,8 +41,8 @@
     <h1 data-page-node-id="1JCfJdytcoM4AixtiBBMDc">一张表，讲清一个职业</h1>
     <p class="hero-sub" data-page-node-id="XkGs3LI7U1WzG7o9pkMZY0">DACUM 分析法是一套「又快又省」的职业分析工具：请一线专家坐在一起，用头脑风暴把某个职业拆成<strong data-page-node-id="Ad6EnxpI0r6nrUm1rkroNh">职责</strong>与<strong data-page-node-id="kp2Ov1maQh7noGfGXyGtxa">任务</strong>，画成一张图，就能照着开发课程、写岗位说明、做培训。</p>
     <div class="hero-cta" data-page-node-id="XDt9OSjO9NAZLbwPCDMS86">
-      <a href="#ch1" class="btn btn-primary" data-page-node-id="ueaMf6FJfOgv5WrTmNp6Mv">开始学习</a>
-      <a href="#tools" class="btn btn-ghost" data-page-node-id="624xU9Bc1MyrcY8fbbmMLV">直接去用工具</a>
+      <a href="#workbench" class="btn btn-primary" data-page-node-id="ueaMf6FJfOgv5WrTmNp6Mv">创建能力图</a>
+      <a href="#ch1" class="btn btn-ghost" data-page-node-id="624xU9Bc1MyrcY8fbbmMLV">先了解方法</a>
     </div>
     <div class="hero-stats" data-page-node-id="vKbbTAOk2bWudiDmGk5CUL">
       <div class="stat" data-page-node-id="vci8sEU7gbWQ21UGQ7di5B"><b data-page-node-id="mBnxXBeGcVPWo12sfvluTJ">2–3 天</b><span data-page-node-id="DsnEcgIIvXMsxkWBqDGZeQ">完成一次分析</span></div>
@@ -54,6 +54,32 @@
 </header>
 
 <main class="main" data-page-node-id="2oa6kjUSteLcE1dpPxeYQs">
+
+
+  <!-- 专业初稿工作台 -->
+  <section class="chapter draft-ch" id="workbench">
+    <div class="ch-head reveal">
+      <span class="ch-no">✦</span>
+      <h2>15 分钟，建立岗位能力图初稿</h2>
+      <p class="ch-desc">从岗位边界到可导出的职责—任务图。此工具帮助形成专业讨论初稿，正式使用前仍须由专家委员会验证。</p>
+    </div>
+    <div class="draft-privacy"><strong>本地优先：</strong>你的岗位资料仅保存在当前浏览器。除非你主动导出或提交反馈，本站不会上传内容。</div>
+    <div class="draft-shell" id="draftWorkspace">
+      <div class="draft-meta">
+        <label>岗位 / 职业名称<input data-draft-meta="title" placeholder="例如：新能源汽车维修技师"></label>
+        <label>分析范围<input data-draft-meta="scope" placeholder="例如：售后服务中心的一线岗位，不含主管职责"></label>
+        <label>版本<input data-draft-meta="version" value="v0.1"></label>
+        <label>分析人 / 团队<input data-draft-meta="analyst" placeholder="例如：教学研发组"></label>
+      </div>
+      <div class="draft-flow"><span>1. 定义范围</span><span>2. 写职责</span><span>3. 拆任务</span><span>4. 自检</span><span>5. 导出验证稿</span></div>
+      <div class="draft-actions"><button class="btn btn-ghost" data-draft-action="example">载入示例</button><button class="btn btn-ghost" data-draft-action="clear">清空当前草稿</button></div>
+      <div class="draft-map" id="draftMap"></div>
+      <button class="btn btn-primary" data-draft-action="add-duty">＋ 添加职责</button>
+      <div class="draft-check" id="draftCheck" aria-live="polite"></div>
+      <div class="draft-export"><button class="btn btn-primary" data-draft-action="export-json">导出 JSON 工作底稿</button><button class="btn btn-ghost" data-draft-action="print">打印 / 保存 PDF</button></div>
+      <p class="draft-note">建议目标：至少 3 项职责，每项至少 3 条具体、可观察的任务。评分、专家验证记录和来源追溯可在下方辅助工具中继续完成。</p>
+    </div>
+  </section>
 
   <!-- 第 1 章 -->
   <section class="chapter" id="ch1" data-page-node-id="5bFrWj24LOq0vYFX7oItb7">
@@ -337,12 +363,18 @@
     </div>
   </section>
 
+
+  <section class="source-chapter" id="sources">
+    <h2>案例来源与使用边界</h2>
+    <p>每个案例卡片均标注资料性质、可点击来源与访问日期。案例用于教学演示或二次整理，不应被视为适用于所有组织的现成岗位标准。</p>
+  </section>
+
   <!-- 工具集 -->
   <section class="chapter tools-ch" id="tools" data-page-node-id="3iA8R2nIXDFfKtO29tr4cm">
     <div class="ch-head reveal" data-page-node-id="74gFItA1ODepYFawby6FGY">
       <span class="ch-no" data-page-node-id="TyCDEh7Zu4k0Ubt71DBV1C">🧰</span>
-      <h2 data-page-node-id="SJbIHgBObyk83YJ5OtmQQy">配套工具集</h2>
-      <p class="ch-desc" data-page-node-id="QvwLL9axcmnP6xU6CWytun">6 个可复用工具，覆盖 DACUM 全流程。直接上手操作，结果可复制、可导出。</p>
+      <h2 data-page-node-id="SJbIHgBObyk83YJ5OtmQQy">辅助学习与验证工具</h2>
+      <p class="ch-desc" data-page-node-id="QvwLL9axcmnP6xU6CWytun">工具协助你理解方法、完善初稿并准备专家验证；请先从上方的能力图工作台开始。</p>
     </div>
 
     <div class="tool-tabs reveal" id="toolTabs" data-page-node-id="xfAhCcIRqcJL786RcpDSET">
