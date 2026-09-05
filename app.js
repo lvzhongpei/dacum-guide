@@ -747,6 +747,20 @@ function htmlToImage(node){
     }
   ];
 
+
+  const caseReferences = {
+    'hr-manager': { url: 'https://wiki.mbalib.com/wiki/DACUM%E5%88%86%E6%9E%90%E6%B3%95', type: '二次整理案例' },
+    'regional-sales-manager': { url: 'https://www.ondemand.com.cn/', type: '机构实践案例' },
+    'sales-consultant': { url: 'https://baike.baidu.com/item/%E9%94%80%E5%94%AE%E9%A1%BE%E9%97%AE', type: '二次整理案例' },
+    'customer-service': { url: 'https://www.betterup.com/blog/customer-service-representative-job-description', type: '职业资料二次整理' },
+    'accountant': { url: 'https://wiki.mbalib.com/wiki/DACUM%E5%88%86%E6%9E%90%E6%B3%95', type: '二次整理案例' },
+    'daycare-nurse': { url: 'https://scholar.google.com/scholar?q=DACUM+daycare+center+nurse', type: '学术研究检索入口' },
+    'or-nurse': { url: 'https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART001292805', type: '同行评议研究' },
+    'ward-nurse': { url: 'https://scholar.google.com/scholar?q=DACUM+ward+ICU+nurse+Korean+Academy+Nursing+Administration+2017', type: '学术研究检索入口' },
+    'dementia-nurse': { url: 'https://rcphn.org/journal/view.php?number=1451&viewtype=pubreader', type: '同行评议研究' },
+    'lvn': { url: 'https://ca-hwi.org/public/uploads/pdfs/Ambulatory_Care_LVN_Chart.pdf', type: '机构发布的 DACUM 图表' }
+  };
+
   const tabsEl = document.getElementById('caseTabs');
   const stageEl = document.getElementById('caseStage');
   let current = 0;
@@ -799,7 +813,7 @@ function htmlToImage(node){
           ${dutyHtml}
         </div>
         <div class="case-highlight">🌟 亮点：${escapeHtml(c.highlight)}</div>
-        <p class="case-source">${escapeHtml(c.source)}</p>
+        <p class="case-source">${escapeHtml(c.source)} · <a href="${caseReferences[c.id].url}" target="_blank" rel="noopener">查看来源</a><br><small>资料性质：${caseReferences[c.id].type} · 访问日期：2026-09-05</small></p>
       </div>`;
 
     // 职责展开/收起
@@ -815,4 +829,81 @@ function htmlToImage(node){
 
   renderTabs();
   renderStage();
+})();
+
+
+/* ===== 专业初稿工作台：本地优先 ===== */
+(function(){
+  const root = document.getElementById('draftWorkspace');
+  if (!root) return;
+  const key = 'dacum-draft-v1';
+  const empty = () => ({ title:'', scope:'', version:'v0.1', analyst:'', duties:[] });
+  let state;
+  try { state = Object.assign(empty(), JSON.parse(localStorage.getItem(key) || '{}')); } catch (_) { state = empty(); }
+  if (!Array.isArray(state.duties)) state.duties = [];
+  const map = document.getElementById('draftMap');
+  const check = document.getElementById('draftCheck');
+  const esc = v => String(v || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const save = () => localStorage.setItem(key, JSON.stringify(state));
+  function gaps(){
+    const out = [];
+    if (!state.title.trim()) out.push('补充岗位 / 职业名称');
+    if (!state.scope.trim()) out.push('补充本次分析的岗位范围');
+    if (state.duties.length < 3) out.push('至少建立 3 项职责');
+    state.duties.forEach((d, i) => {
+      if (!d.name.trim()) out.push('填写第 ' + (i + 1) + ' 项职责名称');
+      if (d.tasks.filter(Boolean).length < 3) out.push('让“' + (d.name || '第 ' + (i + 1) + ' 项职责') + '”至少有 3 条任务');
+    });
+    return out;
+  }
+  function refresh(){
+    const pending = gaps();
+    check.innerHTML = pending.length
+      ? '<strong>还差 ' + pending.length + ' 项，才能形成可验证的初稿：</strong><ul>' + pending.slice(0,5).map(x => '<li>' + esc(x) + '</li>').join('') + '</ul>'
+      : '<strong>✓ 初稿结构完整</strong><p>下一步：用验证问卷收集专家对重要性、频率、难度、入门级和关键性的判断，并记录版本与来源。</p>';
+  }
+  function render(){
+    root.querySelectorAll('[data-draft-meta]').forEach(el => { el.value = state[el.dataset.draftMeta] || ''; });
+    if (!state.duties.length) { map.innerHTML = '<p class="empty-tip">从“添加职责”开始。职责是宽泛责任领域；任务是具体、可观察的活动。</p>'; refresh(); return; }
+    map.innerHTML = state.duties.map((d, di) => {
+      const letter = String.fromCharCode(65 + di);
+      const tasks = d.tasks.map((task, ti) => '<div class="draft-task"><span>' + letter + '-' + (ti+1) + '</span><input data-draft-task="' + di + ':' + ti + '" value="' + esc(task) + '" placeholder="动词 + 宾语 + 限定语"><button class="draft-icon-btn" data-draft-action="remove-task" data-duty="' + di + '" data-task="' + ti + '" aria-label="删除任务">×</button></div>').join('');
+      return '<article class="draft-duty"><div class="draft-duty-head"><span>职责 ' + letter + '</span><input data-draft-duty="' + di + '" value="' + esc(d.name) + '" placeholder="例如：诊断与排除故障"><button class="draft-icon-btn" data-draft-action="remove-duty" data-duty="' + di + '" aria-label="删除职责">×</button></div><div class="draft-tasks">' + tasks + '</div><button class="draft-add-task" data-draft-action="add-task" data-duty="' + di + '">＋ 添加任务</button></article>';
+    }).join('');
+    refresh();
+  }
+  function load(value){ state = value; save(); render(); }
+  function exportJson(){
+    const data = Object.assign({}, state, { exportedAt:new Date().toISOString(), status:'工作草案：须由专家委员会验证' });
+    const url = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)], {type:'application/json'}));
+    const a = document.createElement('a'); a.href=url; a.download=(state.title || 'dacum-draft') + '-能力图初稿.json'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 0);
+  }
+  function printDraft(){
+    const rows = state.duties.map((d,i) => '<section><h2>' + String.fromCharCode(65+i) + '. ' + esc(d.name) + '</h2><ol>' + d.tasks.filter(Boolean).map(t => '<li>' + esc(t) + '</li>').join('') + '</ol></section>').join('');
+    const win = window.open('', '_blank'); if (!win) return;
+    win.document.write('<!doctype html><meta charset="utf-8"><title>DACUM 能力图初稿</title><style>body{font:16px/1.6 system-ui;max-width:800px;margin:40px auto;padding:0 24px}h1{margin-bottom:0}h2{border-bottom:1px solid #ddd;padding-bottom:4px}small{color:#666}</style><h1>' + esc(state.title || '岗位能力图初稿') + '</h1><p>范围：' + esc(state.scope || '未填写') + '</p><p>版本：' + esc(state.version || 'v0.1') + ' · 分析人：' + esc(state.analyst || '未填写') + '</p><p><small>工作草案，须由专家委员会验证。</small></p>' + rows);
+    win.document.close(); win.focus(); win.print();
+  }
+  root.addEventListener('input', event => {
+    const el = event.target;
+    if (el.dataset.draftMeta) state[el.dataset.draftMeta] = el.value;
+    else if (el.dataset.draftDuty !== undefined) state.duties[Number(el.dataset.draftDuty)].name = el.value;
+    else if (el.dataset.draftTask) { const p=el.dataset.draftTask.split(':').map(Number); state.duties[p[0]].tasks[p[1]] = el.value; }
+    else return;
+    save(); refresh();
+  });
+  root.addEventListener('click', event => {
+    const button = event.target.closest('[data-draft-action]'); if (!button) return;
+    const action = button.dataset.draftAction;
+    if (action === 'add-duty') state.duties.push({name:'',tasks:['']});
+    else if (action === 'remove-duty') state.duties.splice(Number(button.dataset.duty),1);
+    else if (action === 'add-task') state.duties[Number(button.dataset.duty)].tasks.push('');
+    else if (action === 'remove-task') state.duties[Number(button.dataset.duty)].tasks.splice(Number(button.dataset.task),1);
+    else if (action === 'clear') { if (window.confirm('清空当前浏览器中的岗位能力图草稿？')) load(empty()); return; }
+    else if (action === 'example') { load({title:'新能源汽车维修技师',scope:'售后服务中心的一线诊断、维修与交付岗位，不含主管职责',version:'v0.1',analyst:'教学研发组',duties:[{name:'执行故障诊断',tasks:['读取车辆故障码并初步判断原因','使用诊断仪定位电控系统异常','记录诊断结果并提出维修建议']},{name:'完成维修作业',tasks:['按维修手册拆装指定部件','使用规定扭矩安装零部件','完成维修后的功能测试']},{name:'保障作业安全与质量',tasks:['检查并佩戴高压作业防护用品','执行工位与工具的安全检查','记录维修质量问题并及时上报']}]}); return; }
+    else if (action === 'export-json') { exportJson(); return; }
+    else if (action === 'print') { printDraft(); return; }
+    save(); render();
+  });
+  render();
 })();
